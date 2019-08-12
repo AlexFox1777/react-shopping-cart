@@ -25,8 +25,8 @@ function App() {
                 <div className="App">
                     <Navigation />
 
-                    <Route exact path="/" component={<Products />}/>
-                    <Route path="/cart" component={<ShoppingCart/>}/>
+                    <Route exact path="/" component={Products}/>
+                    <Route path="/cart" component={ShoppingCart}/>
                 </div>
             </CartProvider>
         </ProductProvider>
