@@ -10,18 +10,21 @@ import {CartProvider} from "./contexts/CartContext";
 import Navigation from './components/Navigation';
 import Products from './components/Products';
 import ShoppingCart from './components/ShoppingCart';
+import {useLocalStorage} from "./hooks/useLocalStorage";
 
 function App() {
     const [products] = useState(data);
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useLocalStorage('cards', []);
 
     const addItem = item => {
         setCart([...cart, item]);
     };
 
+
+
     return (
         <ProductProvider value={{products, addItem}}>
-            <CartProvider value={cart}>
+            <CartProvider value={[cart, setCart]}>
                 <div className="App">
                     <Navigation />
 

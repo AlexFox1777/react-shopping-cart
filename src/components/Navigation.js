@@ -1,15 +1,15 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import {CartContext} from "../contexts/CartContext";
+import useCart from "../hooks/useCart";
 
 const Navigation = () => {
-	const cart = useContext(CartContext);
+	const cart = useCart();
 
 	return (
 		<div className="navigation">
 			<NavLink to="/">Products</NavLink>
 			<NavLink to="/cart">
-				Cart <span>{cart.length}</span>
+				Cart <span>{cart.productList.length}</span>
 			</NavLink>
 		</div>
 	);
