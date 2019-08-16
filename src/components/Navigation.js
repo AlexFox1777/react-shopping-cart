@@ -1,12 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import useCart from "../hooks/useCart";
 
-const Navigation = props => {
+const Navigation = () => {
+	const cart = useCart();
+
 	return (
 		<div className="navigation">
 			<NavLink to="/">Products</NavLink>
 			<NavLink to="/cart">
-				Cart <span>{props.cart.length}</span>
+				Cart <span>{cart.productList.length}</span>
 			</NavLink>
 		</div>
 	);
